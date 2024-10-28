@@ -52,8 +52,8 @@
         <Color x:Key="ControlMediumColor">#FF7381F9</Color>
         <Color x:Key="ControlDarkColor">#FF211AA9</Color>
 
-        <Color x:Key="ControlMouseOverColor">#FF3843C4</Color>
-        <Color x:Key="ControlPressedColor">#FF211AA9</Color>
+        <Color x:Key="ControlMouseOverColor">gray</Color>
+        <Color x:Key="ControlPressedColor">DimGray</Color>
 
 
         <Color x:Key="GlyphColor">#FF444444</Color>
@@ -130,6 +130,7 @@
 
         <!-- Button -->
         <Style TargetType="Button">
+            <Setter Property="Foreground" Value="White"/>
             <Setter Property="SnapsToDevicePixels" Value="true" />
             <Setter Property="OverridesDefaultStyle" Value="true" />
             <Setter Property="FocusVisualStyle" Value="{StaticResource ButtonFocusVisual}" />
@@ -141,7 +142,7 @@
                         <Border TextBlock.Foreground="{TemplateBinding Foreground}"
                 x:Name="Border"
                 CornerRadius="2"
-                BorderThickness="1">
+                BorderThickness="0.5">
                             <Border.BorderBrush>
                                 <!--<SolidColorBrush/>-->
                                 <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
@@ -155,10 +156,14 @@
                             </Border.BorderBrush>
                             
                             <Border.Background>
-                                <!--<SolidColorBrush>CornflowerBlue</SolidColorBrush>-->
-                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <!--<SolidColorBrush>gray</SolidColorBrush>-->
+                                <!--<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                     <GradientStop Color="{DynamicResource ControlLightColor}" Offset="0" />
                                     <GradientStop Color="{DynamicResource ControlMediumColor}" Offset="1" />
+                                </LinearGradientBrush>-->
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="#5D5D5D" Offset="0" />
+                                    <GradientStop Color="#5D5D5D" Offset="1" />
                                 </LinearGradientBrush>
                             </Border.Background>
                             <VisualStateManager.VisualStateGroups>
@@ -170,10 +175,9 @@
                                     <VisualState x:Name="Normal" />
                                     <VisualState x:Name="MouseOver">
                                         <Storyboard>
-                                            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(GradientBrush.GradientStops)[1].(GradientStop.Color)"
+                                            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(GradientBrush.GradientStops)[0].(GradientStop.Color)"
                                                 Storyboard.TargetName="Border">
-                                                <EasingColorKeyFrame KeyTime="0"
-                                         Value="{StaticResource ControlMouseOverColor}" />
+                                                <EasingColorKeyFrame KeyTime="0" Value="{StaticResource ControlMouseOverColor}" />
                                             </ColorAnimationUsingKeyFrames>
                                         </Storyboard>
                                     </VisualState>
@@ -259,18 +263,15 @@
 
         <Style x:Key="SliderThumbStyle" TargetType="{x:Type Thumb}">
             <Setter Property="SnapsToDevicePixels" Value="true" />
-            <Setter Property="OverridesDefaultStyle"
-          Value="true" />
-            <Setter Property="Height"
-          Value="14" />
-            <Setter Property="Width"
-          Value="14" />
+            <Setter Property="OverridesDefaultStyle" Value="true" />
+            <Setter Property="Height" Value="14" />
+            <Setter Property="Width" Value="14" />
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Thumb}">
                         <Ellipse x:Name="Ellipse" StrokeThickness="1">
                             <Ellipse.Stroke>
-                                <SolidColorBrush/>
+                                <SolidColorBrush>White</SolidColorBrush>
                                 <!--<LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
                                     <LinearGradientBrush.GradientStops>
                                         <GradientStopCollection>
@@ -358,7 +359,7 @@
                         </LinearGradientBrush>-->
                     </Border.BorderBrush>
                     <Border.Background>
-                        <SolidColorBrush>CornflowerBlue</SolidColorBrush>
+                        <SolidColorBrush>SpringGreen</SolidColorBrush>
                         <!--<LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
                             <LinearGradientBrush.GradientStops>
                                 <GradientStopCollection>
@@ -540,15 +541,24 @@
 
         <!--#endregion-->
 
-
         <Style TargetType="Button" x:Key="ColorPickerButton">
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Button}">
                         <Border x:Name="Border" 
                                 Background="{TemplateBinding Background}" 
-                                BorderBrush="White" 
-                                BorderThickness="0">
+                                BorderThickness="0"
+                                CornerRadius="2">
+                            <Border.BorderBrush>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                    <LinearGradientBrush.GradientStops>
+                                        <GradientStopCollection>
+                                            <GradientStop Color="{DynamicResource BorderLightColor}" Offset="0.0" />
+                                            <GradientStop Color="{DynamicResource BorderDarkColor}" Offset="1.0" />
+                                        </GradientStopCollection>
+                                    </LinearGradientBrush.GradientStops>
+                                </LinearGradientBrush>
+                            </Border.BorderBrush>
                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </Border>
 

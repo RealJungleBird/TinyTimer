@@ -1,16 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+﻿using System.Windows;
 
 namespace Stopwatch
 {
@@ -26,12 +14,17 @@ namespace Stopwatch
 
         private void buttonDonate_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            System.Diagnostics.Process.Start("https://www.donationalerts.com/r/junglebird");
         }
 
         private void buttonClose_Click(object sender, RoutedEventArgs e)
         {
             Close();
+        }
+
+        private void Hyperlink_Click(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://www.junglebird.su/");
         }
     }
 }

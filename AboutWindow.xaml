@@ -5,11 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Stopwatch"
         mc:Ignorable="d"
-        Title="About" Height="200" Width="300" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" ShowInTaskbar="False">
+        Title="About" Height="200" Width="300" WindowStartupLocation="CenterScreen" ShowInTaskbar="False" ResizeMode="NoResize">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="83*"/>
-            <ColumnDefinition Width="217*"/>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="11*"/>
         </Grid.ColumnDefinitions>
 
         <Image Source="icon.ico" HorizontalAlignment="Center" VerticalAlignment="Center" Width="50" Height="50"/>
@@ -20,12 +20,17 @@
                 <RowDefinition Height="48*"/>
             </Grid.RowDefinitions>
             <TextBlock Text="TinyTimer" VerticalAlignment="Center" Height="30" FontWeight="Bold" FontSize="20" TextAlignment="Right" Margin="0,0,15,0"/>
-            <TextBlock Grid.Row="1" VerticalAlignment="Center" Height="82"><Run Text="TinyTimer © 2024 JungleBird"/><LineBreak/><Run Text="version 0.3 / built on 25.10.2024"/><LineBreak/><Run/><LineBreak/><Hyperlink NavigateUri="www.junglebird.su">www.junglebird.su</Hyperlink></TextBlock>
-            <StackPanel VerticalAlignment="Bottom" Height="25" Grid.Row="2" Orientation="Horizontal" FlowDirection="RightToLeft" Margin="0,0,10,10">
-                <Button Content="Close" x:Name="buttonClose" Width="65" Height="25" Click="buttonClose_Click"/>
-                <Button Content="" Width="65" Height="25" Margin="5,0,0,0"/>
-                <Button Content="Donate" x:Name="buttonDonate" Width="65" Height="25" Margin="5,0,0,0" Click="buttonDonate_Click"/>
-            </StackPanel>
+            <TextBlock Grid.Row="1" VerticalAlignment="Center" Height="82" HorizontalAlignment="Center" TextAlignment="Center"><Run Text="TinyTimer © 2024 JungleBird"/><LineBreak/><Run Text="version 0.3 / built on 25.10.2024"/><LineBreak/><Run/><LineBreak/><Hyperlink NavigateUri="www.junglebird.su" Click="Hyperlink_Click">www.junglebird.su</Hyperlink></TextBlock>
+            <Grid Height="25" Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0" Content="Donate" x:Name="buttonDonate" Width="60" Click="buttonDonate_Click"/>
+                <Button Grid.Column="1" Content="" Width="60"/>
+                <Button Grid.Column="2" Content="Close" x:Name="buttonClose" Width="60" Click="buttonClose_Click"/>
+            </Grid>
         </Grid>
     </Grid>
 </Window>
