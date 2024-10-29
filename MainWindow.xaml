@@ -261,65 +261,43 @@
             </Setter>
         </Style>
 
+        <Style x:Key="SliderRepeatButtonLeft" TargetType="{x:Type RepeatButton}">
+            <Setter Property="SnapsToDevicePixels" Value="true" />
+            <Setter Property="OverridesDefaultStyle" Value="true" />
+            <Setter Property="IsTabStop" Value="false" />
+            <Setter Property="Focusable" Value="false" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type RepeatButton}">
+                        <Border Background="SpringGreen"
+                                Height="4"
+                                CornerRadius="2,0,0,2"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
         <Style x:Key="SliderThumbStyle" TargetType="{x:Type Thumb}">
             <Setter Property="SnapsToDevicePixels" Value="true" />
             <Setter Property="OverridesDefaultStyle" Value="true" />
-            <Setter Property="Height" Value="14" />
-            <Setter Property="Width" Value="14" />
+            <Setter Property="Height" Value="15" />
+            <Setter Property="Width" Value="15" />
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Thumb}">
                         <Ellipse x:Name="Ellipse" StrokeThickness="1">
                             <Ellipse.Stroke>
                                 <SolidColorBrush>White</SolidColorBrush>
-                                <!--<LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                                    <LinearGradientBrush.GradientStops>
-                                        <GradientStopCollection>
-                                            <GradientStop Color="{DynamicResource BorderLightColor}" Offset="0.0" />
-                                            <GradientStop Color="{DynamicResource BorderDarkColor}" Offset="1.0" />
-                                        </GradientStopCollection>
-                                    </LinearGradientBrush.GradientStops>
-                                </LinearGradientBrush>-->
                             </Ellipse.Stroke>
                             <Ellipse.Fill>
                                 <SolidColorBrush>White</SolidColorBrush>
-                                <!--<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                    <GradientStop Color="{DynamicResource ControlMediumColor}" Offset="1" />
-                                    <GradientStop Color="{DynamicResource ControlLightColor}" />
-                                </LinearGradientBrush> -->
                             </Ellipse.Fill>
-                            <!--<VisualStateManager.VisualStateGroups>
-                                <VisualStateGroup x:Name="CommonStates">
-                                    <VisualState x:Name="Normal" />
-                                    <VisualState x:Name="MouseOver">
-                                        <Storyboard>
-                                            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[0].(GradientStop.Color)" Storyboard.TargetName="Ellipse">
-                                                <EasingColorKeyFrame KeyTime="0" Value="{StaticResource ControlMouseOverColor}" />
-                                            </ColorAnimationUsingKeyFrames>
-                                        </Storyboard>
-                                    </VisualState>
-                                    <VisualState x:Name="Pressed">
-                                        <Storyboard>
-                                            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[0].(GradientStop.Color)" Storyboard.TargetName="Ellipse">
-                                                <EasingColorKeyFrame KeyTime="0" Value="{StaticResource ControlPressedColor}" />
-                                            </ColorAnimationUsingKeyFrames>
-                                        </Storyboard>
-                                    </VisualState>
-                                    <VisualState x:Name="Disabled">
-                                        <Storyboard>
-                                            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[0].(GradientStop.Color)"
-                                                Storyboard.TargetName="Ellipse">
-                                                <EasingColorKeyFrame KeyTime="0" Value="{StaticResource DisabledControlDarkColor}" />
-                                            </ColorAnimationUsingKeyFrames>
-                                        </Storyboard>
-                                    </VisualState>
-                                </VisualStateGroup>
-                            </VisualStateManager.VisualStateGroups>-->
                         </Ellipse>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
         </Style>
+        
 
         <!--Template when the orientation of the Slider is Horizontal.-->
         <ControlTemplate x:Key="HorizontalSlider" TargetType="{x:Type Slider}">
@@ -341,9 +319,9 @@
                 <Border x:Name="TrackBackground"
             Margin="0"
             CornerRadius="2"
-            Height="5"
+            Height="4"
             Grid.Row="1"
-            BorderThickness="1">
+            BorderThickness="0">
                     <Border.BorderBrush>
                         <SolidColorBrush></SolidColorBrush>
                         <!--<LinearGradientBrush StartPoint="0,0"
@@ -359,7 +337,7 @@
                         </LinearGradientBrush>-->
                     </Border.BorderBrush>
                     <Border.Background>
-                        <SolidColorBrush>SpringGreen</SolidColorBrush>
+                        <SolidColorBrush>White</SolidColorBrush>
                         <!--<LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
                             <LinearGradientBrush.GradientStops>
                                 <GradientStopCollection>
@@ -372,14 +350,13 @@
                 </Border>
                 <Track Grid.Row="1" x:Name="PART_Track">
                     <Track.DecreaseRepeatButton>
-                        <RepeatButton Style="{StaticResource SliderButtonStyle}" Command="Slider.DecreaseLarge" />
+                        <RepeatButton Style="{StaticResource SliderRepeatButtonLeft}" Command="Slider.DecreaseLarge"/>
                     </Track.DecreaseRepeatButton>
                     <Track.Thumb>
-                        <Thumb Style="{StaticResource SliderThumbStyle}" />
+                        <Thumb Style="{StaticResource SliderThumbStyle}"/>
                     </Track.Thumb>
                     <Track.IncreaseRepeatButton>
-                        <RepeatButton Style="{StaticResource SliderButtonStyle}"
-                      Command="Slider.IncreaseLarge" />
+                        <RepeatButton Style="{StaticResource SliderButtonStyle}" Command="Slider.IncreaseLarge" />
                     </Track.IncreaseRepeatButton>
                 </Track>
                 <TickBar x:Name="BottomTick"
@@ -513,28 +490,19 @@
         </ControlTemplate>
 
         <Style TargetType="{x:Type Slider}">
-            <Setter Property="SnapsToDevicePixels"
-          Value="true" />
-            <Setter Property="OverridesDefaultStyle"
-          Value="true" />
+            <Setter Property="IsSelectionRangeEnabled" Value="True"/>
+            <Setter Property="SnapsToDevicePixels" Value="True" />
+            <Setter Property="OverridesDefaultStyle" Value="True" />
             <Style.Triggers>
-                <Trigger Property="Orientation"
-             Value="Horizontal">
-                    <Setter Property="MinWidth"
-              Value="104" />
-                    <Setter Property="MinHeight"
-              Value="21" />
-                    <Setter Property="Template"
-              Value="{StaticResource HorizontalSlider}" />
+                <Trigger Property="Orientation" Value="Horizontal">
+                    <Setter Property="MinWidth" Value="104" />
+                    <Setter Property="MinHeight" Value="21" />
+                    <Setter Property="Template" Value="{StaticResource HorizontalSlider}" />
                 </Trigger>
-                <Trigger Property="Orientation"
-             Value="Vertical">
-                    <Setter Property="MinWidth"
-              Value="21" />
-                    <Setter Property="MinHeight"
-              Value="104" />
-                    <Setter Property="Template"
-              Value="{StaticResource VerticalSlider}" />
+                <Trigger Property="Orientation" Value="Vertical">
+                    <Setter Property="MinWidth" Value="21" />
+                    <Setter Property="MinHeight" Value="104" />
+                    <Setter Property="Template" Value="{StaticResource VerticalSlider}" />
                 </Trigger>
             </Style.Triggers>
         </Style>
@@ -607,7 +575,7 @@
             <!-- Buttons -->
             <Grid Grid.Row="0" VerticalAlignment="Center" Height="40">
                 <Button x:Name="buttonStart" Content="Start" HorizontalAlignment="Left" VerticalAlignment="Center" Width="85" Height="26" Margin="8,0,0,0" Click="buttonStart_Click"/>
-                <Button x:Name="buttonReset" Content="Reload" HorizontalAlignment="Left" VerticalAlignment="Center" Width="85" Height="26" Margin="108,0,0,0" Click="buttonReset_Click"/>
+                <Button x:Name="buttonReset" Content="Reset" HorizontalAlignment="Left" VerticalAlignment="Center" Width="85" Height="26" Margin="108,0,0,0" Click="buttonReset_Click"/>
                 <Button x:Name="buttonAbout" Content="About" HorizontalAlignment="Left" VerticalAlignment="Center" Width="85" Height="26" Margin="208,0,0,0" Click="buttonAbout_Click"/>
                 <Button x:Name="buttonClose" Content="Close" HorizontalAlignment="Left" VerticalAlignment="Center" Width="85" Height="26" Margin="308,0,0,0" Click="buttonClose_Click"/>
             </Grid>
@@ -629,29 +597,29 @@
                     <ColumnDefinition Width="19*"/>
                 </Grid.ColumnDefinitions>
 
-                <TextBlock Grid.Column="0" Text="Прозрачность фона:" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="15,0,0,0"/>
-                <Slider Grid.Row="0" Grid.Column="1" x:Name="OpacitySlider" HorizontalAlignment="Center" VerticalAlignment="Center" Width="170" Minimum="1" Maximum="255" ValueChanged="OpacitySlider_ValueChanged" Value="48" Height="20"/>
+                <TextBlock Grid.Row="0" Grid.Column="0" Text="Цвет фона:" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="15,0,0,0"/>
+                <Button Grid.Row="0" Grid.Column="1" x:Name="colorPickBackground" Style="{StaticResource ColorPickerButton}" HorizontalAlignment="Center" Width="170" BorderBrush="{x:Null}" BorderThickness="0,0,0,0" Height="20" VerticalAlignment="Center" Click="colorPickBackground_Click"/>
                 
-                <TextBlock Grid.Row="1" Grid.Column="0" Text="Цвет текста:" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="15,0,0,0"/>
-                <Button Grid.Row="1" Grid.Column="1" x:Name="colorPickText" Style="{StaticResource ColorPickerButton}" Width="170" BorderBrush="{x:Null}" BorderThickness="0,0,0,0" Height="20" VerticalAlignment="Center" HorizontalAlignment="Center" Click="colorPickText_Click"/>
+                <TextBlock Grid.Row="1" Grid.Column="0" Text="Прозрачность фона:" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="15,0,0,0"/>
+                <Slider Grid.Row="1" Grid.Column="1" x:Name="OpacitySlider" HorizontalAlignment="Center" VerticalAlignment="Center" Width="170" Minimum="1" Maximum="255" ValueChanged="OpacitySlider_ValueChanged" Value="48" Height="20"/>
                 
-                <TextBlock Grid.Row="2" Grid.Column="0" Text="Цвет фона:" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="15,0,0,0"/>
-                <Button Grid.Row="2" Grid.Column="1" x:Name="colorPickBackground" Style="{StaticResource ColorPickerButton}" HorizontalAlignment="Center" Width="170" BorderBrush="{x:Null}" BorderThickness="0,0,0,0" Height="20" VerticalAlignment="Center" Click="colorPickBackground_Click"/>
+                <TextBlock Grid.Row="2" Grid.Column="0" Text="Скругление углов: " Margin="15,0,0,0"/>
+                <Slider Grid.Row="2" Grid.Column="1" x:Name="CornerRadiusSlider" HorizontalAlignment="Center" VerticalAlignment="Center" Width="170" Height="20" Minimum="0" Maximum="30" Value="5" ValueChanged="CornerRadiusSlider_ValueChanged"/>
                 
-                <TextBlock Grid.Row="3" Grid.Column="0" Text="Размер текста:" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="15,0,0,0"/>
-                <Slider Grid.Row="3" Grid.Column="1" x:Name="textSizeSlider" HorizontalAlignment="Center" VerticalAlignment="Center" Width="170" Minimum="24" Maximum="72" Value="72" Height="20" ValueChanged="textSizeSlider_ValueChanged"/>
+                <TextBlock Grid.Row="3" Grid.Column="0" Text="Цвет текста:" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="15,0,0,0"/>
+                <Button Grid.Row="3" Grid.Column="1" x:Name="colorPickText" Style="{StaticResource ColorPickerButton}" Width="170" BorderBrush="{x:Null}" BorderThickness="0,0,0,0" Height="20" VerticalAlignment="Center" HorizontalAlignment="Center" Click="colorPickText_Click"/>
+
+                <TextBlock Grid.Row="4" Grid.Column="0" Text="Размер текста:" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="15,0,0,0"/>
+                <Slider Grid.Row="4" Grid.Column="1" x:Name="textSizeSlider" HorizontalAlignment="Center" VerticalAlignment="Center" Width="170" Minimum="24" Maximum="72" Value="72" Height="20" ValueChanged="textSizeSlider_ValueChanged"/>
                 
-                <TextBlock Grid.Row="4" Grid.Column="0" Text="Шрифт:" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="15,0,0,0"/>
-                <Button Grid.Row="4" Grid.Column="1" x:Name="fontDialog" Content="Выбрать шрифт..." HorizontalAlignment="Center" VerticalAlignment="Center" Width="170" Click="fontDialog_Click" Height="20" BorderBrush="{x:Null}" BorderThickness="0,0,0,0"/>
+                <TextBlock Grid.Row="5" Grid.Column="0" Text="Шрифт:" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="15,0,0,0"/>
+                <Button Grid.Row="5" Grid.Column="1" x:Name="fontDialog" Content="Выбрать шрифт..." HorizontalAlignment="Center" VerticalAlignment="Center" Width="170" Click="fontDialog_Click" Height="20" BorderBrush="{x:Null}" BorderThickness="0,0,0,0"/>
                 
-                <TextBlock Grid.Row="5" Grid.Column="0" Text="Свечение (цвет):" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="15,0,0,0"/>
-                <Button Grid.Row="5" Grid.Column="1" x:Name="colorPickGlow" Style="{StaticResource ColorPickerButton}" HorizontalAlignment="Center" Width="170" BorderBrush="{x:Null}" BorderThickness="0,0,0,0" Height="20" VerticalAlignment="Center" Click="colorPickGlow_Click"/>
+                <TextBlock Grid.Row="6" Grid.Column="0" Text="Свечение (цвет):" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="15,0,0,0"/>
+                <Button Grid.Row="6" Grid.Column="1" x:Name="colorPickGlow" Style="{StaticResource ColorPickerButton}" HorizontalAlignment="Center" Width="170" BorderBrush="{x:Null}" BorderThickness="0,0,0,0" Height="20" VerticalAlignment="Center" Click="colorPickGlow_Click"/>
                 
-                <TextBlock Grid.Row="6" Grid.Column="0" Text="Свечение (сила):" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="15,0,0,0"/>
-                <Slider Grid.Row="6" Grid.Column="1" x:Name="sliderGlowOpacity" HorizontalAlignment="Center" VerticalAlignment="Center" Width="170" Height="20" Minimum="0" Maximum="1" Value="0" SmallChange="0.01" TickFrequency="0.01" LargeChange="0.01" ValueChanged="GlowOpacitySlider_ValueChanged"/>
-                
-                <TextBlock Grid.Row="7" Grid.Column="0" Text="Скругление углов: " Margin="15,0,0,0"/>
-                <Slider Grid.Row="7" Grid.Column="1" x:Name="CornerRadiusSlider" HorizontalAlignment="Center" VerticalAlignment="Center" Width="170" Height="20" Minimum="0" Maximum="30" Value="5" ValueChanged="CornerRadiusSlider_ValueChanged"/>
+                <TextBlock Grid.Row="7" Grid.Column="0" Text="Свечение (сила):" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="15,0,0,0"/>
+                <Slider Grid.Row="7" Grid.Column="1" x:Name="sliderGlowOpacity" HorizontalAlignment="Center" VerticalAlignment="Center" Width="170" Height="20" Minimum="0" Maximum="1" Value="0" SmallChange="0.01" TickFrequency="0.01" LargeChange="0.01" ValueChanged="GlowOpacitySlider_ValueChanged"/>
             </Grid>
         </Grid>
     </Grid>
