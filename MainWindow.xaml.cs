@@ -8,7 +8,7 @@ using System.Windows.Forms;
 namespace Stopwatch
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {   
@@ -111,11 +111,11 @@ namespace Stopwatch
             if(timer.IsEnabled)
             {
                 timer.Stop();
-                buttonStart.Content = "Запустить";
+                buttonStart.Content = "Start";
                 return;
             }
             timer.Start();
-            buttonStart.Content = "Остановить";
+            buttonStart.Content = "Stop";
         }
         // Reset
         private void buttonReset_Click(object sender, RoutedEventArgs e)

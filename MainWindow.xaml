@@ -597,28 +597,28 @@
                     <ColumnDefinition Width="19*"/>
                 </Grid.ColumnDefinitions>
 
-                <TextBlock Grid.Row="0" Grid.Column="0" Text="Цвет фона:" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="15,0,0,0"/>
+                <TextBlock Grid.Row="0" Grid.Column="0" Text="Background color:" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="15,0,0,0"/>
                 <Button Grid.Row="0" Grid.Column="1" x:Name="colorPickBackground" Style="{StaticResource ColorPickerButton}" HorizontalAlignment="Center" Width="170" BorderBrush="{x:Null}" BorderThickness="0,0,0,0" Height="20" VerticalAlignment="Center" Click="colorPickBackground_Click"/>
                 
-                <TextBlock Grid.Row="1" Grid.Column="0" Text="Прозрачность фона:" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="15,0,0,0"/>
+                <TextBlock Grid.Row="1" Grid.Column="0" Text="Background opacity:" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="15,0,0,0"/>
                 <Slider Grid.Row="1" Grid.Column="1" x:Name="OpacitySlider" HorizontalAlignment="Center" VerticalAlignment="Center" Width="170" Minimum="1" Maximum="255" ValueChanged="OpacitySlider_ValueChanged" Value="48" Height="20"/>
                 
-                <TextBlock Grid.Row="2" Grid.Column="0" Text="Скругление углов: " Margin="15,0,0,0"/>
+                <TextBlock Grid.Row="2" Grid.Column="0" Text="Corner radius:" Margin="15,0,0,0"/>
                 <Slider Grid.Row="2" Grid.Column="1" x:Name="CornerRadiusSlider" HorizontalAlignment="Center" VerticalAlignment="Center" Width="170" Height="20" Minimum="0" Maximum="30" Value="5" ValueChanged="CornerRadiusSlider_ValueChanged"/>
                 
-                <TextBlock Grid.Row="3" Grid.Column="0" Text="Цвет текста:" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="15,0,0,0"/>
+                <TextBlock Grid.Row="3" Grid.Column="0" Text="Text color:" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="15,0,0,0"/>
                 <Button Grid.Row="3" Grid.Column="1" x:Name="colorPickText" Style="{StaticResource ColorPickerButton}" Width="170" BorderBrush="{x:Null}" BorderThickness="0,0,0,0" Height="20" VerticalAlignment="Center" HorizontalAlignment="Center" Click="colorPickText_Click"/>
 
-                <TextBlock Grid.Row="4" Grid.Column="0" Text="Размер текста:" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="15,0,0,0"/>
+                <TextBlock Grid.Row="4" Grid.Column="0" Text="Text size:" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="15,0,0,0"/>
                 <Slider Grid.Row="4" Grid.Column="1" x:Name="textSizeSlider" HorizontalAlignment="Center" VerticalAlignment="Center" Width="170" Minimum="24" Maximum="72" Value="72" Height="20" ValueChanged="textSizeSlider_ValueChanged"/>
                 
-                <TextBlock Grid.Row="5" Grid.Column="0" Text="Шрифт:" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="15,0,0,0"/>
-                <Button Grid.Row="5" Grid.Column="1" x:Name="fontDialog" Content="Выбрать шрифт..." HorizontalAlignment="Center" VerticalAlignment="Center" Width="170" Click="fontDialog_Click" Height="20" BorderBrush="{x:Null}" BorderThickness="0,0,0,0"/>
+                <TextBlock Grid.Row="5" Grid.Column="0" Text="Text font:" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="15,0,0,0"/>
+                <Button Grid.Row="5" Grid.Column="1" x:Name="fontDialog" Content="Choose a font..." HorizontalAlignment="Center" VerticalAlignment="Center" Width="170" Click="fontDialog_Click" Height="20" BorderBrush="{x:Null}" BorderThickness="0,0,0,0"/>
                 
-                <TextBlock Grid.Row="6" Grid.Column="0" Text="Свечение (цвет):" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="15,0,0,0"/>
+                <TextBlock Grid.Row="6" Grid.Column="0" Text="Text glow color:" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="15,0,0,0"/>
                 <Button Grid.Row="6" Grid.Column="1" x:Name="colorPickGlow" Style="{StaticResource ColorPickerButton}" HorizontalAlignment="Center" Width="170" BorderBrush="{x:Null}" BorderThickness="0,0,0,0" Height="20" VerticalAlignment="Center" Click="colorPickGlow_Click"/>
                 
-                <TextBlock Grid.Row="7" Grid.Column="0" Text="Свечение (сила):" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="15,0,0,0"/>
+                <TextBlock Grid.Row="7" Grid.Column="0" Text="Text glow strength:" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="15,0,0,0"/>
                 <Slider Grid.Row="7" Grid.Column="1" x:Name="sliderGlowOpacity" HorizontalAlignment="Center" VerticalAlignment="Center" Width="170" Height="20" Minimum="0" Maximum="1" Value="0" SmallChange="0.01" TickFrequency="0.01" LargeChange="0.01" ValueChanged="GlowOpacitySlider_ValueChanged"/>
             </Grid>
         </Grid>

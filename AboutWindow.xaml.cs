@@ -3,7 +3,7 @@
 namespace Stopwatch
 {
     /// <summary>
-    /// Логика взаимодействия для AboutWindow.xaml
+    /// Interaction Logic for About Window.xaml
     /// </summary>
     public partial class AboutWindow : Window
     {
