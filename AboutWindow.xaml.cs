@@ -26,5 +26,10 @@ namespace Stopwatch
         {
             System.Diagnostics.Process.Start("https://www.junglebird.su/");
         }
+
+        private void buttonUpdate_Click(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/RealJungleBird/TinyTimer/releases");
+        }
     }
 }

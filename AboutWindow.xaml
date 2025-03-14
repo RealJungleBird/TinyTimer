@@ -20,7 +20,7 @@
                 <RowDefinition Height="48*"/>
             </Grid.RowDefinitions>
             <TextBlock Text="TinyTimer" VerticalAlignment="Center" Height="30" FontWeight="Bold" FontSize="20" TextAlignment="Right" Margin="0,0,15,0"/>
-            <TextBlock Grid.Row="1" VerticalAlignment="Center" Height="82" HorizontalAlignment="Center" TextAlignment="Center"><Run Text="TinyTimer © 2024 JungleBird"/><LineBreak/><Run Text="version 0.3 / built on 25.10.2024"/><LineBreak/><Run/><LineBreak/><Hyperlink NavigateUri="www.junglebird.su" Click="Hyperlink_Click">www.junglebird.su</Hyperlink></TextBlock>
+            <TextBlock Grid.Row="1" VerticalAlignment="Center" Height="82" HorizontalAlignment="Center" TextAlignment="Center"><Run Text="TinyTimer © 2025 JungleBird"/><LineBreak/><Run Text="version 0.4 / built on 14.03.2025"/><LineBreak/><Run/><LineBreak/><Hyperlink Foreground="#FF6D6D6D" NavigateUri="www.junglebird.su" TextDecorations="Underline"/></TextBlock>
             <Grid Height="25" Grid.Row="2">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
@@ -28,7 +28,7 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <Button Grid.Column="0" Content="Donate" x:Name="buttonDonate" Width="60" Click="buttonDonate_Click"/>
-                <Button Grid.Column="1" Content="" Width="60"/>
+                <Button Grid.Column="1" Content="Update" x:Name="buttonUpdate" Width="60" Click="buttonUpdate_Click"/>
                 <Button Grid.Column="2" Content="Close" x:Name="buttonClose" Width="60" Click="buttonClose_Click"/>
             </Grid>
         </Grid>
