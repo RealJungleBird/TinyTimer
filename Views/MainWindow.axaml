@@ -3,11 +3,26 @@
         xmlns:vm="using:TinyTimer.ViewModels"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="300"
         x:Class="TinyTimer.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
         Icon="/Assets/avalonia-logo.ico"
-        Title="TinyTimer">
+        Title="TinyTimer Control Panel"
+        Width="400"
+        Height="300"
+        WindowStartupLocation="CenterScreen"
+        CanResize="False">
+    
+    <Window.Styles>
+        <Style Selector="TextBlock.Header">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+        
+        <Style Selector="TextBlock">
+            <Setter Property="FontSize" Value="15"/>
+        </Style>
+    </Window.Styles>
 
     <Design.DataContext>
         <!-- This only sets the DataContext for the previewer in an IDE,
@@ -15,6 +30,60 @@
         <vm:MainWindowViewModel/>
     </Design.DataContext>
 
-    <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+    <ScrollViewer >
+        <Grid Margin="10">
+            <StackPanel Orientation="Vertical">
+                <TextBlock Classes="Header" Text="Actions" Margin="0,0,0,10"/>
+                <StackPanel Orientation="Horizontal">
+                    <Button Content="Start" Width="85" Margin="0,0,4,0"/>
+                    <Button Content="Reset" Width="85" Margin="4, 0"/>
+                    <Button Content="About" Width="85" Margin="4,0"/>
+                    <Button Content="Close" Width="85" Margin="4,0,0,0"/>
+                </StackPanel>
+                
+                <Separator Margin="0, 15"/>
+                
+                <TextBlock Classes="Header" Text="Initial value" Margin="0,0,0,10"/>
+                <StackPanel Orientation="Horizontal">
+                    <NumericUpDown FontSize="30" FormatString="00" Minimum="0" Maximum="999" Value="0"/>
+                    <TextBlock Text=":" VerticalAlignment="Center" Margin="5,0,5,0"></TextBlock>
+                    <NumericUpDown FontSize="30" FormatString="00" Minimum="0" Maximum="59" Value="0"/>
+                    <TextBlock Text=":" VerticalAlignment="Center" Margin="5,0,5,0"></TextBlock>
+                    <NumericUpDown FontSize="30" FormatString="00" Minimum="0" Maximum="59" Value="0"/>
+                </StackPanel>
+                
+                <Separator Margin="0, 15"/>
+                
+                <TextBlock Classes="Header" Text="Appearance" Margin="0,0,0,10"/>
+                <Grid ColumnDefinitions="20*, 20*" RowDefinitions="30,30,30,30,30,30,30,30">
+                    
+                    <TextBlock VerticalAlignment="Center" Grid.Row="0" Grid.Column="0" Text="Background color:"/>
+                    <ColorPicker Color="{Binding BgColor}" VerticalAlignment="Center" Grid.Row="0" Grid.Column="1"/>
+                    
+                    <TextBlock VerticalAlignment="Center" Grid.Row="1" Grid.Column="0" Text="Background opacity:"/>
+                    <Slider Minimum="1" Maximum="255" Value="{Binding BgOpacity}" VerticalAlignment="Center" Grid.Row="1" Grid.Column="1"></Slider>
+                    
+                    <TextBlock VerticalAlignment="Center" Grid.Row="2" Grid.Column="0" Text="Corner radius:"/>
+                    <Slider Minimum="0" Maximum="30" Value="5" VerticalAlignment="Center" Grid.Row="2" Grid.Column="1"></Slider>
+                    
+                    <TextBlock VerticalAlignment="Center" Grid.Row="3" Grid.Column="0" Text="Font color:"/>
+                    <ColorPicker VerticalAlignment="Center" Grid.Row="3" Grid.Column="1"/>
+                    
+                    <TextBlock VerticalAlignment="Center" Grid.Row="4" Grid.Column="0" Text="Font size:"/>
+                    <Slider Minimum="24" Maximum="72" Value="{Binding FontSize}" VerticalAlignment="Center" Grid.Row="4" Grid.Column="1"></Slider>
+                    
+                    <TextBlock VerticalAlignment="Center" Grid.Row="5" Grid.Column="0" Text="Font family:"/>
+                    
+                    <TextBlock VerticalAlignment="Center" Grid.Row="6" Grid.Column="0" Text="Text glow color:"/>
+                    <ColorPicker Color="{Binding TextGlowColor}" VerticalAlignment="Center" Grid.Row="6" Grid.Column="1"/>
+                    
+                    <TextBlock VerticalAlignment="Center" Grid.Row="7" Grid.Column="0" Text="Text glow strength:"/>
+                    <Slider Value="{Binding TextGlowStrength}" VerticalAlignment="Center" Grid.Row="7" Grid.Column="1"/>
+                </Grid>
+            </StackPanel>
+            
+        </Grid>
+        
+    </ScrollViewer>
 
 </Window>
