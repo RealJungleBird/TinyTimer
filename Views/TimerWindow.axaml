@@ -1,0 +1,38 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:TinyTimer.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="150"
+        x:Class="TinyTimer.TimerWindow"
+        x:DataType="vm:TimerWindowViewModel"
+        Title="TimerWindow"
+        Width="400"
+        Height="150"
+        
+        WindowStartupLocation="CenterScreen"
+        Topmost="True"
+        Background="#45454545"
+        BorderBrush="Transparent"
+        BorderThickness="0"
+        ExtendClientAreaToDecorationsHint="False"
+        ExtendClientAreaChromeHints="NoChrome"
+        CanResize="False"
+        SystemDecorations="None"
+        PointerPressed="InputElement_OnPointerPressed"
+        >
+    
+    <Grid>
+        <TextBlock 
+            x:Name="Clock"
+            Text="00:00:00"
+            
+            FontSize="72"
+            
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center"/>
+        
+        
+    </Grid>
+    
+</Window>
