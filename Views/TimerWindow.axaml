@@ -3,6 +3,7 @@
         xmlns:vm="using:TinyTimer.ViewModels"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:models="clr-namespace:TinyTimer.Models"
         mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="150"
         x:Class="TinyTimer.TimerWindow"
         x:DataType="vm:TimerWindowViewModel"
@@ -12,27 +13,28 @@
         
         WindowStartupLocation="CenterScreen"
         Topmost="True"
-        Background="#45454545"
+        Background="Transparent"
         BorderBrush="Transparent"
-        BorderThickness="0"
+        BorderThickness="1"
         ExtendClientAreaToDecorationsHint="False"
         ExtendClientAreaChromeHints="NoChrome"
-        CanResize="False"
+        CanResize="True"
         SystemDecorations="None"
-        PointerPressed="InputElement_OnPointerPressed"
-        >
+        PointerPressed="InputElement_OnPointerPressed">
     
     <Grid>
-        <TextBlock 
-            x:Name="Clock"
-            Text="00:00:00"
-            
-            FontSize="72"
-            
-            VerticalAlignment="Center"
-            HorizontalAlignment="Center"/>
-        
-        
+        <Border
+            Background="#45454599"
+            CornerRadius="{Binding timerStyle.cr}">
+            <TextBlock 
+                x:Name="Clock"
+                Text="00:00:00"
+                
+                FontSize="{Binding timerStyle.FontSize}"
+                Foreground="{Binding Source={x:Static models:TimerStyles.CurrentTimerStyle}, Path=TextColor}"
+                
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"/>
+        </Border>
     </Grid>
-    
 </Window>
