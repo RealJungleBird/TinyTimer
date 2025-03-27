@@ -3,6 +3,7 @@
         xmlns:vm="using:TinyTimer.ViewModels"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:models="clr-namespace:TinyTimer.Models"
         mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="300"
         x:Class="TinyTimer.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
@@ -58,19 +59,19 @@
                 <Grid ColumnDefinitions="20*, 20*" RowDefinitions="30,30,30,30,30,30,30,30">
                     
                     <TextBlock VerticalAlignment="Center" Grid.Row="0" Grid.Column="0" Text="Background color:"/>
-                    <ColorPicker Color="{Binding BgColor}" VerticalAlignment="Center" Grid.Row="0" Grid.Column="1"/>
+                    <ColorPicker Color="{Binding currentStyle.BgColor}" VerticalAlignment="Center" Grid.Row="0" Grid.Column="1"/>
                     
                     <TextBlock VerticalAlignment="Center" Grid.Row="1" Grid.Column="0" Text="Background opacity:"/>
                     <Slider Minimum="1" Maximum="255" Value="{Binding BgOpacity}" VerticalAlignment="Center" Grid.Row="1" Grid.Column="1"></Slider>
                     
                     <TextBlock VerticalAlignment="Center" Grid.Row="2" Grid.Column="0" Text="Corner radius:"/>
-                    <Slider Minimum="0" Maximum="30" Value="5" VerticalAlignment="Center" Grid.Row="2" Grid.Column="1"></Slider>
+                    <Slider Minimum="0" Maximum="99" Value="{Binding Source={x:Static models:TimerStyles.CurrentTimerStyle}, Path=CornerRadius}" VerticalAlignment="Center" Grid.Row="2" Grid.Column="1"></Slider>
                     
                     <TextBlock VerticalAlignment="Center" Grid.Row="3" Grid.Column="0" Text="Font color:"/>
-                    <ColorPicker VerticalAlignment="Center" Grid.Row="3" Grid.Column="1"/>
+                    <ColorPicker Color="{Binding Source={x:Static models:TimerStyles.CurrentTimerStyle}, Path=TextColor}" VerticalAlignment="Center" Grid.Row="3" Grid.Column="1"/>
                     
                     <TextBlock VerticalAlignment="Center" Grid.Row="4" Grid.Column="0" Text="Font size:"/>
-                    <Slider Minimum="24" Maximum="72" Value="{Binding FontSize}" VerticalAlignment="Center" Grid.Row="4" Grid.Column="1"></Slider>
+                    <Slider Minimum="24" Maximum="72" Value="{Binding Source={x:Static models:TimerStyles.CurrentTimerStyle}, Path=FontSize}" VerticalAlignment="Center" Grid.Row="4" Grid.Column="1"></Slider>
                     
                     <TextBlock VerticalAlignment="Center" Grid.Row="5" Grid.Column="0" Text="Font family:"/>
                     
