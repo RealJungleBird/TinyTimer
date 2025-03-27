@@ -1,4 +1,5 @@
 using Avalonia.Controls;
+using TinyTimer.ViewModels;
 
 namespace TinyTimer.Views;
 
@@ -7,7 +8,7 @@ public partial class MainWindow : Window
     public MainWindow()
     {
         InitializeComponent();
-        TimerWindow timerWindow = new();
-        timerWindow.Show();
+        this.DataContext = new MainWindowViewModel();
+        (this.DataContext as MainWindowViewModel).CreateTimerWindow();
     }
 }
