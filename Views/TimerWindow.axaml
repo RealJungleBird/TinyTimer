@@ -33,7 +33,18 @@
                 Foreground="{Binding timerStyle.TextBrush}"
                 
                 VerticalAlignment="Center"
-                HorizontalAlignment="Center"/>
+                HorizontalAlignment="Center">
+                
+                <TextBlock.Effect>
+                    <DropShadowEffect
+                        BlurRadius="{Binding timerStyle.TextGlowBlur}"
+                        Color="{Binding timerStyle.TextGlowColor}"
+                        OffsetX="0"
+                        OffsetY="0"
+                    />
+                </TextBlock.Effect>
+            </TextBlock>
+                
         </Border>
     </Grid>
 </Window>

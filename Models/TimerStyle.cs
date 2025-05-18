@@ -75,19 +75,28 @@ namespace TinyTimer.Models
             set
             {
                 _textGlowColor = value;
-                OnPropertyChanged(nameof(TextGlowColorBrush));
+                OnPropertyChanged(nameof(TextGlowColor));
             }
         }
         public IBrush TextGlowColorBrush
         {
             get => new SolidColorBrush(_textGlowColor);
         }
-        
-        
-        
-        
-        public int TextGlowStrength { get; set; } = 0;
 
+        private double _textGlowBlur = 0;
+        public double TextGlowBlur
+        {
+            get => _textGlowBlur;
+            set
+            {
+                _textGlowBlur = value;
+                OnPropertyChanged(nameof(TextGlowBlur));
+            }
+        }
+
+        
+        
+        
         public TimerStyle()
         {
             FontSize = 30;
