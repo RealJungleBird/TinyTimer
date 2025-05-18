@@ -5,6 +5,6 @@ namespace TinyTimer.ViewModels
 {
     public class TimerWindowViewModel : ViewModelBase
     {
-        public TimerStyle timerStyle { get; set; } = TimerStyles.CurrentTimerStyle;
+        public TimerStyle timerStyle => TimerStyles.CurrentTimerStyle;
     }
 }

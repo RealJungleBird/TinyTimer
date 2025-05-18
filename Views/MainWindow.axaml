@@ -3,7 +3,6 @@
         xmlns:vm="using:TinyTimer.ViewModels"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:models="clr-namespace:TinyTimer.Models"
         mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="300"
         x:Class="TinyTimer.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
@@ -58,28 +57,81 @@
                 <TextBlock Classes="Header" Text="Appearance" Margin="0,0,0,10"/>
                 <Grid ColumnDefinitions="20*, 20*" RowDefinitions="30,30,30,30,30,30,30,30">
                     
-                    <TextBlock VerticalAlignment="Center" Grid.Row="0" Grid.Column="0" Text="Background color:"/>
-                    <ColorPicker Color="{Binding currentStyle.BgColor}" VerticalAlignment="Center" Grid.Row="0" Grid.Column="1"/>
+                    <TextBlock
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        VerticalAlignment="Center"
+                        Text="Background color:"/>
+                    <ColorPicker
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Color="{Binding currentStyle.BgColor}"
+                        VerticalAlignment="Center"/>
                     
-                    <TextBlock VerticalAlignment="Center" Grid.Row="1" Grid.Column="0" Text="Background opacity:"/>
-                    <Slider Minimum="1" Maximum="255" Value="{Binding BgOpacity}" VerticalAlignment="Center" Grid.Row="1" Grid.Column="1"></Slider>
+                    <TextBlock
+                        Grid.Row="2"
+                        Grid.Column="0"
+                        VerticalAlignment="Center"
+                        Text="Corner radius:"/>
+                    <Slider 
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        Value="{Binding currentStyle.CornerRadius}"
+                        Minimum="0"
+                        Maximum="99"
+                        VerticalAlignment="Center"/>
                     
-                    <TextBlock VerticalAlignment="Center" Grid.Row="2" Grid.Column="0" Text="Corner radius:"/>
-                    <Slider Minimum="0" Maximum="99" Value="{Binding Source={x:Static models:TimerStyles.CurrentTimerStyle}, Path=CornerRadius}" VerticalAlignment="Center" Grid.Row="2" Grid.Column="1"></Slider>
+                    <TextBlock
+                        Grid.Row="3"
+                        Grid.Column="0"
+                        VerticalAlignment="Center"
+                        Text="Font color:"/>
+                    <ColorPicker
+                        Grid.Row="3"
+                        Grid.Column="1"
+                        Color="{Binding currentStyle.TextColor}"
+                        VerticalAlignment="Center"/>
                     
-                    <TextBlock VerticalAlignment="Center" Grid.Row="3" Grid.Column="0" Text="Font color:"/>
-                    <ColorPicker Color="{Binding Source={x:Static models:TimerStyles.CurrentTimerStyle}, Path=TextColor}" VerticalAlignment="Center" Grid.Row="3" Grid.Column="1"/>
+                    <TextBlock
+                        Grid.Row="4"
+                        Grid.Column="0"
+                        VerticalAlignment="Center"
+                        Text="Font size:"/>
+                    <Slider
+                        Grid.Row="4"
+                        Grid.Column="1"
+                        Minimum="24"
+                        Maximum="72"
+                        Value="{Binding currentStyle.FontSize}"
+                        VerticalAlignment="Center"/>
                     
-                    <TextBlock VerticalAlignment="Center" Grid.Row="4" Grid.Column="0" Text="Font size:"/>
-                    <Slider Minimum="24" Maximum="72" Value="{Binding Source={x:Static models:TimerStyles.CurrentTimerStyle}, Path=FontSize}" VerticalAlignment="Center" Grid.Row="4" Grid.Column="1"></Slider>
+                    <TextBlock
+                        Grid.Row="5"
+                        Grid.Column="0"
+                        VerticalAlignment="Center"
+                        Text="Font family:"/>
                     
-                    <TextBlock VerticalAlignment="Center" Grid.Row="5" Grid.Column="0" Text="Font family:"/>
+                    <TextBlock
+                        VerticalAlignment="Center"
+                        Grid.Row="6"
+                        Grid.Column="0"
+                        Text="Text glow color:"/>
+                    <ColorPicker
+                        Color="{Binding currentStyle.TextGlowColor}"
+                        VerticalAlignment="Center"
+                        Grid.Row="6"
+                        Grid.Column="1"/>
                     
-                    <TextBlock VerticalAlignment="Center" Grid.Row="6" Grid.Column="0" Text="Text glow color:"/>
-                    <ColorPicker Color="{Binding TextGlowColor}" VerticalAlignment="Center" Grid.Row="6" Grid.Column="1"/>
-                    
-                    <TextBlock VerticalAlignment="Center" Grid.Row="7" Grid.Column="0" Text="Text glow strength:"/>
-                    <Slider Value="{Binding TextGlowStrength}" VerticalAlignment="Center" Grid.Row="7" Grid.Column="1"/>
+                    <TextBlock
+                        VerticalAlignment="Center"
+                        Grid.Row="7"
+                        Grid.Column="0"
+                        Text="Text glow strength:"/>
+                    <Slider
+                        Grid.Row="7"
+                        Grid.Column="1"
+                        Value="{Binding currentStyle.TextGlowStrength}"
+                        VerticalAlignment="Center"/>
                 </Grid>
             </StackPanel>
             

@@ -3,7 +3,6 @@
         xmlns:vm="using:TinyTimer.ViewModels"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:models="clr-namespace:TinyTimer.Models"
         mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="150"
         x:Class="TinyTimer.TimerWindow"
         x:DataType="vm:TimerWindowViewModel"
@@ -24,14 +23,14 @@
     
     <Grid>
         <Border
-            Background="#45454599"
+            Background="{Binding timerStyle.BackgroundBrush}"
             CornerRadius="{Binding timerStyle.cr}">
             <TextBlock 
                 x:Name="Clock"
                 Text="00:00:00"
                 
                 FontSize="{Binding timerStyle.FontSize}"
-                Foreground="{Binding Source={x:Static models:TimerStyles.CurrentTimerStyle}, Path=TextColor}"
+                Foreground="{Binding timerStyle.TextBrush}"
                 
                 VerticalAlignment="Center"
                 HorizontalAlignment="Center"/>

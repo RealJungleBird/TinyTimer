@@ -6,12 +6,6 @@ namespace TinyTimer.Models
 {
     public class TimerStyle : INotifyPropertyChanged
     {
-        public  int BgOpacity { get; set; } = 40;
-
-        public CornerRadius cr
-        {
-            get => new CornerRadius(_cornerRadius);
-        }
         private int _cornerRadius;
         public int CornerRadius
         {
@@ -25,8 +19,12 @@ namespace TinyTimer.Models
                 }
             }
         }
+        public CornerRadius cr
+        {
+            get => new CornerRadius(_cornerRadius);
+        }
 
-        private int _fontSize = 12;
+        private int _fontSize;
         public int FontSize
         {
             get => _fontSize;
@@ -40,7 +38,20 @@ namespace TinyTimer.Models
             }
         }
         
-        public  Color BgColor { get; set; } = Color.FromRgb(255, 255, 255);
+        private Color _bgColor = Color.FromArgb(80, 255, 255, 255);
+        public Color BgColor 
+        {
+            get => _bgColor;
+            set
+            {
+                _bgColor = value;
+                OnPropertyChanged(nameof(BackgroundBrush));
+            }
+        }
+        public IBrush BackgroundBrush
+        {
+            get => new SolidColorBrush(_bgColor);
+        }
         
         private Color _textColor = Colors.White;
         public Color TextColor
@@ -49,13 +60,33 @@ namespace TinyTimer.Models
             set
             {
                 _textColor = value;
-                OnPropertyChanged(nameof(TextColor));
+                OnPropertyChanged(nameof(TextBrush));
             }
+        }
+        public IBrush TextBrush // converting color to brush so it could be used to color a text
+        {
+            get => new SolidColorBrush(_textColor);
+        }
+        
+        private Color _textGlowColor = Colors.White;
+        public Color TextGlowColor
+        {
+            get => _textGlowColor;
+            set
+            {
+                _textGlowColor = value;
+                OnPropertyChanged(nameof(TextGlowColorBrush));
+            }
+        }
+        public IBrush TextGlowColorBrush
+        {
+            get => new SolidColorBrush(_textGlowColor);
         }
         
         
-        public  Color TextGlowColor { get; set; } = Color.FromRgb(255, 255, 255);
-        public  int TextGlowStrength { get; set; } = 0;
+        
+        
+        public int TextGlowStrength { get; set; } = 0;
 
         public TimerStyle()
         {
