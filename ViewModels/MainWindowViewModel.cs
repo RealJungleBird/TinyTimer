@@ -1,5 +1,10 @@
-﻿using Avalonia.Media;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
+using Avalonia.Media;
 using TinyTimer.Models;
+
 
 namespace TinyTimer.ViewModels
 {
@@ -11,6 +16,30 @@ namespace TinyTimer.ViewModels
         {
             TimerWindow timerWindow = new TimerWindow();
             timerWindow.Show();
+        }
+
+
+        public List<FontFamily> AvailableFonts { get; }
+            = FontManager.Current.SystemFonts
+                .ToList();
+        
+        private FontFamily _selectedFont;
+        public FontFamily SelectedFont
+        {
+            get => _selectedFont;
+            set
+            {
+                _selectedFont = value;
+                currentStyle.FontFamily = new FontFamily(value.Name);
+                OnPropertyChanged(nameof(SelectedFont));
+                //currentStyle.FontFamily = value;
+            }
+        }
+
+        public event PropertyChangedEventHandler? PropertyChanged;
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

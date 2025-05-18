@@ -37,6 +37,17 @@ namespace TinyTimer.Models
                 }
             }
         }
+
+        private FontFamily _fontFamily = new FontFamily("Comic Sans MSa");
+        public FontFamily FontFamily
+        {
+            get => _fontFamily;
+            set
+            {
+                _fontFamily = value;
+                OnPropertyChanged(nameof(FontFamily));
+            }
+        }
         
         private Color _bgColor = Color.FromArgb(80, 255, 255, 255);
         public Color BgColor 
@@ -104,7 +115,6 @@ namespace TinyTimer.Models
         }
         
         public event PropertyChangedEventHandler PropertyChanged;
-
         protected virtual void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
