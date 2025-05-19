@@ -20,7 +20,7 @@ namespace TinyTimer.ViewModels
 
 
         public List<FontFamily> AvailableFonts { get; }
-            = FontManager.Current.SystemFonts
+            = FontManager.Current.SystemFonts.OrderBy(f => f.Name)
                 .ToList();
         
         private FontFamily _selectedFont;
@@ -30,9 +30,8 @@ namespace TinyTimer.ViewModels
             set
             {
                 _selectedFont = value;
-                currentStyle.FontFamily = new FontFamily(value.Name);
                 OnPropertyChanged(nameof(SelectedFont));
-                //currentStyle.FontFamily = value;
+                currentStyle.FontFamily = value;
             }
         }
 

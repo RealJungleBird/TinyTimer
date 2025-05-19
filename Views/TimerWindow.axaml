@@ -27,7 +27,7 @@
             CornerRadius="{Binding timerStyle.cr}">
             <TextBlock 
                 x:Name="Clock"
-                Text="{Binding timerStyle.FontFamily.Name}"
+                Text="00:00:00"
                 
                 FontFamily="{Binding timerStyle.FontFamily}"
                 FontSize="{Binding timerStyle.FontSize}"
