@@ -17,35 +17,41 @@
         BorderThickness="1"
         ExtendClientAreaToDecorationsHint="False"
         ExtendClientAreaChromeHints="NoChrome"
-        CanResize="True"
+        CanResize="False"
         SystemDecorations="None"
-        PointerPressed="InputElement_OnPointerPressed">
+        >
     
     <Grid>
         <Border
-            Background="{Binding timerStyle.BackgroundBrush}"
-            CornerRadius="{Binding timerStyle.cr}">
-            <TextBlock 
-                x:Name="Clock"
-                Text="00:00:00"
-                
-                FontFamily="{Binding timerStyle.FontFamily}"
-                FontSize="{Binding timerStyle.FontSize}"
-                Foreground="{Binding timerStyle.TextBrush}"
-                
-                VerticalAlignment="Center"
-                HorizontalAlignment="Center">
-                
-                <TextBlock.Effect>
-                    <DropShadowEffect
-                        BlurRadius="{Binding timerStyle.TextGlowBlur}"
-                        Color="{Binding timerStyle.TextGlowColor}"
-                        OffsetX="0"
-                        OffsetY="0"
-                    />
-                </TextBlock.Effect>
-            </TextBlock>
-                
+            x:Name="ResizeBorder"
+            BorderThickness="2"
+            BorderBrush="Transparent"
+            IsHitTestVisible="False">
+            
+            <Border
+                Background="{Binding timerStyle.BackgroundBrush}"
+                CornerRadius="{Binding timerStyle.cr}">
+                <TextBlock 
+                    x:Name="Clock"
+                    Text="00:00:00"
+                    
+                    FontFamily="{Binding timerStyle.FontFamily}"
+                    FontSize="{Binding timerStyle.FontSize}"
+                    Foreground="{Binding timerStyle.TextBrush}"
+                    
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center">
+                    
+                    <TextBlock.Effect>
+                        <DropShadowEffect
+                            BlurRadius="{Binding timerStyle.TextGlowBlur}"
+                            Color="{Binding timerStyle.TextGlowColor}"
+                            OffsetX="0"
+                            OffsetY="0"
+                        />
+                    </TextBlock.Effect>
+                </TextBlock>
+            </Border>
         </Border>
     </Grid>
 </Window>
