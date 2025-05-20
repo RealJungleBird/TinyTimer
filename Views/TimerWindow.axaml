@@ -10,6 +10,9 @@
         Width="400"
         Height="150"
         
+        MinWidth="150"
+        MinHeight="50"
+        
         WindowStartupLocation="CenterScreen"
         Topmost="True"
         Background="Transparent"
@@ -17,41 +20,77 @@
         BorderThickness="1"
         ExtendClientAreaToDecorationsHint="False"
         ExtendClientAreaChromeHints="NoChrome"
-        CanResize="False"
+        CanResize="True"
         SystemDecorations="None"
-        >
-    
+        PointerPressed="InputElement_OnPointerPressed">
+        
     <Grid>
-        <Border
-            x:Name="ResizeBorder"
-            BorderThickness="2"
-            BorderBrush="Transparent"
-            IsHitTestVisible="False">
-            
-            <Border
-                Background="{Binding timerStyle.BackgroundBrush}"
-                CornerRadius="{Binding timerStyle.cr}">
-                <TextBlock 
-                    x:Name="Clock"
-                    Text="00:00:00"
-                    
-                    FontFamily="{Binding timerStyle.FontFamily}"
-                    FontSize="{Binding timerStyle.FontSize}"
-                    Foreground="{Binding timerStyle.TextBrush}"
-                    
-                    VerticalAlignment="Center"
-                    HorizontalAlignment="Center">
-                    
-                    <TextBlock.Effect>
-                        <DropShadowEffect
-                            BlurRadius="{Binding timerStyle.TextGlowBlur}"
-                            Color="{Binding timerStyle.TextGlowColor}"
-                            OffsetX="0"
-                            OffsetY="0"
-                        />
-                    </TextBlock.Effect>
-                </TextBlock>
-            </Border>
+        <Border x:Name="ResizeBorder"
+                BorderBrush="Transparent"
+                BorderThickness="2">
+                <Border
+                    Background="{Binding timerStyle.BackgroundBrush}"
+                    CornerRadius="{Binding timerStyle.cr}">
+                    <TextBlock 
+                        x:Name="Clock"
+                        Text="00:00:00"
+                        
+                        FontFamily="{Binding timerStyle.FontFamily}"
+                        FontSize="{Binding timerStyle.FontSize}"
+                        Foreground="{Binding timerStyle.TextBrush}"
+                        
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center">
+                        
+                        <TextBlock.Effect>
+                            <DropShadowEffect
+                                BlurRadius="{Binding timerStyle.TextGlowBlur}"
+                                Color="{Binding timerStyle.TextGlowColor}"
+                                OffsetX="0"
+                                OffsetY="0"
+                            />
+                        </TextBlock.Effect>
+                    </TextBlock>
+                </Border>
         </Border>
+            
+        
+        <!-- Custom elements for resizing -->
+        <!-- Left Border -->
+        <Border Name="LeftBorder" Cursor="LeftSide" 
+                Width="5" HorizontalAlignment="Left" 
+                Background="Transparent"/>
+                
+        <!-- Right Border -->
+        <Border Name="RightBorder" Cursor="RightSide" 
+                Width="5" HorizontalAlignment="Right" 
+                Background="Transparent"/>
+                
+        <!-- Top Border -->
+        <Border Name="TopBorder" Cursor="TopSide" 
+                Height="5" VerticalAlignment="Top" 
+                Background="Transparent"/>
+                
+        <!-- Bottom Border -->
+        <Border Name="BottomBorder" Cursor="BottomSide" 
+                Height="5" VerticalAlignment="Bottom" 
+                Background="Transparent"/>
+                
+        <!-- Corners -->
+        <Border Name="TopLeftCorner" Cursor="TopLeftCorner" 
+                Width="10" Height="10" HorizontalAlignment="Left" 
+                VerticalAlignment="Top" Background="Transparent"/>
+                
+        <Border Name="TopRightCorner" Cursor="TopRightCorner" 
+                Width="10" Height="10" HorizontalAlignment="Right" 
+                VerticalAlignment="Top" Background="Transparent"/>
+                
+        <Border Name="BottomLeftCorner" Cursor="BottomLeftCorner" 
+                Width="10" Height="10" HorizontalAlignment="Left" 
+                VerticalAlignment="Bottom" Background="Transparent"/>
+                
+        <Border Name="BottomRightCorner" Cursor="BottomRightCorner" 
+                Width="10" Height="10" HorizontalAlignment="Right" 
+                VerticalAlignment="Bottom" Background="Transparent"/>
     </Grid>
 </Window>
