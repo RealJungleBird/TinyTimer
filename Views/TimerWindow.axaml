@@ -29,23 +29,23 @@
                 BorderBrush="Transparent"
                 BorderThickness="2">
                 <Border
-                    Background="{Binding timerStyle.BackgroundBrush}"
-                    CornerRadius="{Binding timerStyle.cr}">
+                    Background="{Binding TimerStyle.BackgroundBrush}"
+                    CornerRadius="{Binding TimerStyle.cr}">
                     <TextBlock 
                         x:Name="Clock"
-                        Text="00:00:00"
+                        Text="{Binding TimerText}"
                         
-                        FontFamily="{Binding timerStyle.FontFamily}"
-                        FontSize="{Binding timerStyle.FontSize}"
-                        Foreground="{Binding timerStyle.TextBrush}"
+                        FontFamily="{Binding TimerStyle.FontFamily}"
+                        FontSize="{Binding TimerStyle.FontSize}"
+                        Foreground="{Binding TimerStyle.TextBrush}"
                         
                         VerticalAlignment="Center"
                         HorizontalAlignment="Center">
                         
                         <TextBlock.Effect>
                             <DropShadowEffect
-                                BlurRadius="{Binding timerStyle.TextGlowBlur}"
-                                Color="{Binding timerStyle.TextGlowColor}"
+                                BlurRadius="{Binding TimerStyle.TextGlowBlur}"
+                                Color="{Binding TimerStyle.TextGlowColor}"
                                 OffsetX="0"
                                 OffsetY="0"
                             />

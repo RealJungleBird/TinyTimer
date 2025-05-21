@@ -7,11 +7,13 @@ namespace TinyTimer;
 
 public partial class TimerWindow : Window
 {
+    private readonly TimerWindowViewModel _viewModel;
+    
     public TimerWindow()
     {
         InitializeComponent();
-        var viewmodel = new TimerWindowViewModel();
-        this.DataContext = viewmodel;
+        _viewModel = new TimerWindowViewModel();
+        this.DataContext = _viewModel;
         
         // Subscribe to PointerPressed events for all borders
         LeftBorder.PointerPressed += (s, e) => BeginResize(WindowEdge.West, e);
@@ -22,6 +24,8 @@ public partial class TimerWindow : Window
         TopRightCorner.PointerPressed += (s, e) => BeginResize(WindowEdge.NorthEast, e);
         BottomLeftCorner.PointerPressed += (s, e) => BeginResize(WindowEdge.SouthWest, e);
         BottomRightCorner.PointerPressed += (s, e) => BeginResize(WindowEdge.SouthEast, e);
+        
+        _viewModel.InitializeTimer();
     }
 
     private void BeginResize(WindowEdge edge, PointerPressedEventArgs e)

@@ -35,10 +35,10 @@
             <StackPanel Orientation="Vertical">
                 <TextBlock Classes="Header" Text="Actions" Margin="0,0,0,10"/>
                 <StackPanel Orientation="Horizontal">
-                    <Button Content="Start" Width="85" Margin="0,0,4,0"/>
-                    <Button Content="Reset" Width="85" Margin="4, 0"/>
-                    <Button Content="About" Width="85" Margin="4,0"/>
-                    <Button Content="Close" Width="85" Margin="4,0,0,0"/>
+                    <Button x:Name="Start" Content="Start" Width="85" Margin="0,0,4,0" Click="Start_OnClick"/>
+                    <Button x:Name="Reset" Content="Reset" Width="85" Margin="4, 0" Click="Reset_OnClick"/>
+                    <Button x:Name="About" Content="About" Width="85" Margin="4,0"/>
+                    <Button x:Name="Close" Content="Close" Width="85" Margin="4,0,0,0"/>
                 </StackPanel>
                 
                 <Separator Margin="0, 15"/>
@@ -66,7 +66,7 @@
                     <ColorPicker
                         Grid.Row="0"
                         Grid.Column="1"
-                        Color="{Binding currentStyle.BgColor}"
+                        Color="{Binding CurrentStyle.BgColor}"
                         VerticalAlignment="Center"
                         />
                     
@@ -79,7 +79,7 @@
                     <Slider 
                         Grid.Row="1"
                         Grid.Column="1"
-                        Value="{Binding currentStyle.CornerRadius}"
+                        Value="{Binding CurrentStyle.CornerRadius}"
                         Minimum="0"
                         Maximum="99"
                         VerticalAlignment="Center"
@@ -94,7 +94,7 @@
                     <ColorPicker
                         Grid.Row="2"
                         Grid.Column="1"
-                        Color="{Binding currentStyle.TextColor}"
+                        Color="{Binding CurrentStyle.TextColor}"
                         VerticalAlignment="Center"
                         />
                     
@@ -109,7 +109,7 @@
                         Grid.Column="1"
                         Minimum="24"
                         Maximum="72"
-                        Value="{Binding currentStyle.FontSize}"
+                        Value="{Binding CurrentStyle.FontSize}"
                         VerticalAlignment="Center"
                         />
                     
@@ -144,7 +144,7 @@
                         Text="Text glow color:"
                         />
                     <ColorPicker
-                        Color="{Binding currentStyle.TextGlowColor}"
+                        Color="{Binding CurrentStyle.TextGlowColor}"
                         VerticalAlignment="Center"
                         Grid.Row="5"
                         Grid.Column="1"
@@ -161,7 +161,7 @@
                         Grid.Column="1"
                         Minimum="0"
                         Maximum="100"
-                        Value="{Binding currentStyle.TextGlowBlur}"
+                        Value="{Binding CurrentStyle.TextGlowBlur}"
                         VerticalAlignment="Center"
                         />
                 </Grid>

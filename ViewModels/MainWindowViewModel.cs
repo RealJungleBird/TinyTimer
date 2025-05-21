@@ -10,12 +10,14 @@ namespace TinyTimer.ViewModels
 {
     public class MainWindowViewModel : ViewModelBase
     {
-        public TimerStyle currentStyle => TimerStyles.CurrentTimerStyle;
+        public TimerStyle CurrentStyle => TimerStyles.CurrentTimerStyle;
+        
+        public TimerWindow TimerWindow { get; set; }
+        private TimerWindow _timerWindow = new TimerWindow();
     
         public void CreateTimerWindow()
         {
-            TimerWindow timerWindow = new TimerWindow();
-            timerWindow.Show();
+            _timerWindow.Show();
         }
 
 
@@ -23,7 +25,7 @@ namespace TinyTimer.ViewModels
             = FontManager.Current.SystemFonts.OrderBy(f => f.Name)
                 .ToList();
         
-        private FontFamily _selectedFont;
+        private FontFamily _selectedFont = FontFamily.Default;
         public FontFamily SelectedFont
         {
             get => _selectedFont;
@@ -31,14 +33,8 @@ namespace TinyTimer.ViewModels
             {
                 _selectedFont = value;
                 OnPropertyChanged(nameof(SelectedFont));
-                currentStyle.FontFamily = value;
+                CurrentStyle.FontFamily = value;
             }
-        }
-
-        public event PropertyChangedEventHandler? PropertyChanged;
-        protected virtual void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }
