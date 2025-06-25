@@ -2,11 +2,12 @@
 using System.ComponentModel;
 using Avalonia.Media;
 using Avalonia.Threading;
+using TinyTimer.Messenger;
 using TinyTimer.Models;
 
 namespace TinyTimer.ViewModels
 {
-    public class TimerWindowViewModel : ViewModelBase
+    public class TimerWindowViewModel : ViewModelBase, IDisposable
     {
         public TimerStyle TimerStyle => TimerStyles.CurrentTimerStyle;
         
@@ -26,6 +27,12 @@ namespace TinyTimer.ViewModels
         private byte _hours = 0;
         private byte _minutes = 0;
         private byte _seconds = 0;
+
+        public TimerWindowViewModel()
+        {
+            MessageBus.StartTimerRequested += StartTimer;
+            MessageBus.StopTimerRequested += StopTimer;
+        }
 
         public void InitializeTimer()
         {
@@ -77,6 +84,12 @@ namespace TinyTimer.ViewModels
                 _hours.ToString("D2"),
                 _minutes.ToString("d2"),
                 _seconds.ToString("d2"));
+        }
+
+        public void Dispose()
+        {
+            MessageBus.StartTimerRequested -= StartTimer;
+            _timer.Stop();
         }
     }
 }
