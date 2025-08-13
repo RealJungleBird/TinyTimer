@@ -16,10 +16,10 @@ namespace TinyTimer.ViewModels
 {
     public class MainWindowViewModel : ViewModelBase
     {
-        public ICommand StartTimerCommand { get; }
-        public ICommand StopTimerCommand { get; }
+        public ICommand StartTimerCommand { get; }      // A command to start a timer
+        public ICommand StopTimerCommand { get; }       // A command to stop a timer
         
-        public TimerStyle CurrentStyle => TimerStyles.CurrentTimerStyle;
+        public TimerStyle CurrentStyle => TimerStyles.CurrentTimerStyle;    // Reference to the current style
         
         public TimerWindow TimerWindow { get; set; }
         private TimerWindow _timerWindow = new TimerWindow();

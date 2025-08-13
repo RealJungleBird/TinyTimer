@@ -4,6 +4,7 @@ using Avalonia.Media;
 
 namespace TinyTimer.Models
 {
+    // A class for storing a set of timer style parameters
     public class TimerStyle : INotifyPropertyChanged
     {
         private int _cornerRadius;
