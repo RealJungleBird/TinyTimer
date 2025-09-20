@@ -2,6 +2,7 @@ using System;
 
 namespace TinyTimer.Messenger;
 
+// Message Bus pattern for loose coupling between components
 public static class MessageBus
 {
     public static event Action? StartTimerRequested;

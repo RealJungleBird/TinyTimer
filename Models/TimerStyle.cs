@@ -20,7 +20,7 @@ namespace TinyTimer.Models
                 }
             }
         }
-        public CornerRadius cr
+        public CornerRadius cr // Read-only property converting radius to CornerRadius
         {
             get => new CornerRadius(_cornerRadius);
         }

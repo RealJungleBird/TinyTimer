@@ -16,8 +16,8 @@ namespace TinyTimer.ViewModels
 {
     public class MainWindowViewModel : ViewModelBase
     {
-        public ICommand StartTimerCommand { get; }      // A command to start a timer
-        public ICommand StopTimerCommand { get; }       // A command to stop a timer
+        public ICommand StartTimerCommand { get; }      // Command to start timer
+        public ICommand StopTimerCommand { get; }       // Command to stop timer
         
         public TimerStyle CurrentStyle => TimerStyles.CurrentTimerStyle;    // Reference to the current style
         
@@ -48,7 +48,7 @@ namespace TinyTimer.ViewModels
             _timerWindow.Show();
         }
 
-
+        // List of available fonts
         public List<FontFamily> AvailableFonts { get; }
             = FontManager.Current.SystemFonts.OrderBy(f => f.Name)
                 .ToList();
