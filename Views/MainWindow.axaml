@@ -35,8 +35,8 @@
             <StackPanel Orientation="Vertical">
                 <TextBlock Classes="Header" Text="Actions" Margin="0,0,0,10"/>
                 <StackPanel Orientation="Horizontal">
-                    <Button x:Name="Start" Content="Start" Width="85" Margin="0,0,4,0" Click="Start_OnClick"/>
-                    <Button x:Name="Reset" Content="Reset" Width="85" Margin="4, 0" Click="Reset_OnClick"/>
+                    <Button x:Name="Start" Content="Start" Width="85" Margin="0,0,4,0" Command="{Binding StartTimerCommand}"/>
+                    <Button x:Name="Reset" Content="Reset" Width="85" Margin="4, 0" Command="{Binding StopTimerCommand}"/>
                     <Button x:Name="About" Content="About" Width="85" Margin="4,0"/>
                     <Button x:Name="Close" Content="Close" Width="85" Margin="4,0,0,0"/>
                 </StackPanel>

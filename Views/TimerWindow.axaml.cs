@@ -26,6 +26,7 @@ public partial class TimerWindow : Window
         BottomRightCorner.PointerPressed += (s, e) => BeginResize(WindowEdge.SouthEast, e);
         
         _viewModel.InitializeTimer();
+        //_viewModel.StartTimer();
     }
 
     private void BeginResize(WindowEdge edge, PointerPressedEventArgs e)

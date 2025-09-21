@@ -15,14 +15,4 @@ public partial class MainWindow : Window
         this.DataContext = _viewModel;
         _viewModel.CreateTimerWindow();
     }
-
-    private void Start_OnClick(object? sender, RoutedEventArgs e)
-    {
-        throw new System.NotImplementedException();
-    }
-
-    private void Reset_OnClick(object? sender, RoutedEventArgs e)
-    {
-        throw new System.NotImplementedException();
-    }
 }
